@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-client
+  namespace: ping
+spec:
+  selector:
+    matchLabels:
+      app: k8slab
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8slab
+    spec:
+      containers:
+      - name: redis-client
+        image: sti.local/alpine-python:3.8
+        imagePullPolicy: IfNotPresent
+        command: [ "/usr/bin/python" ]
+        args: [ "/opt/pingredis.py" ]

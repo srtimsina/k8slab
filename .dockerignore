@@ -1,0 +1,7 @@
+# GIT
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Docker
